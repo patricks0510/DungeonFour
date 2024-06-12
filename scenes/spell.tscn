@@ -30,8 +30,12 @@ color = Color(0.533333, 0, 1, 1)
 script = ExtResource("1_myuq7")
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+light_mask = 8
+visibility_layer = 8
 scale = Vector2(0.808455, 0.799928)
 shape = SubResource("CircleShape2D_gebmo")
 

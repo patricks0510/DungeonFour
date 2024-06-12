@@ -1,5 +1,6 @@
 extends Node2D
 
+signal died
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,5 +13,7 @@ func _process(delta):
 
 
 func _on_ghost_area_entered(area):
-	if(area.get_parent() == spell):
+	print(area.get_collision_layer())
+	if(area.get_collision_layer() == 8):
+		emit_signal("died")
 		queue_free()
