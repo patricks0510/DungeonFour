@@ -17,5 +17,5 @@ func shoot_missile():
 	var newMissile = magicMissile.instantiate()
 	add_child(newMissile)
 	newMissile.global_position = player.global_position
-	newMissile.direction = player.direction2d
+	newMissile.direction = player.facingDirection
 	

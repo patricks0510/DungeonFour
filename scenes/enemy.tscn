@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4g6sbgk7ixro"]
+
+[ext_resource type="Script" path="res://scenes/enemy.gd" id="1_el4e0"]
+[ext_resource type="Texture2D" uid="uid://py4apacyy34w" path="res://assets/ghost.png" id="2_hjlck"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hhht7"]
+radius = 7.0
+height = 14.0
+
+[node name="Enemy" type="Node2D"]
+script = ExtResource("1_el4e0")
+
+[node name="Ghost" type="Area2D" parent="."]
+
+[node name="GhostSprite" type="Sprite2D" parent="Ghost"]
+light_mask = 4
+visibility_layer = 4
+texture = ExtResource("2_hjlck")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ghost"]
+light_mask = 4
+visibility_layer = 5
+shape = SubResource("CapsuleShape2D_hhht7")
+
+[connection signal="area_entered" from="Ghost" to="." method="_on_ghost_area_entered"]
