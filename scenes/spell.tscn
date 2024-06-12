@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://d1622fj8kh4mo"]
+
+[ext_resource type="Script" path="res://scripts/spell.gd" id="1_myuq7"]
+
+[sub_resource type="Curve" id="Curve_i272g"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.978261, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_sgm6v"]
+curve = SubResource("Curve_i272g")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_heqjq"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 98, 0)
+scale_min = 3.0
+scale_max = 7.0
+scale_curve = SubResource("CurveTexture_sgm6v")
+color = Color(0.533333, 0, 1, 1)
+
+[node name="Spell" type="Node2D"]
+script = ExtResource("1_myuq7")
+
+[node name="SpellParticle" type="GPUParticles2D" parent="."]
+amount = 15
+process_material = SubResource("ParticleProcessMaterial_heqjq")
+
+[node name="Timer" type="Timer" parent="SpellParticle"]
+autostart = true
+
+[connection signal="timeout" from="SpellParticle/Timer" to="." method="_on_timer_timeout"]
