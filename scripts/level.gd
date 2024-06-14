@@ -5,7 +5,9 @@ var lives = 5
 
 @onready var player = $Player
 @onready var hud = $UI/HUD
+@onready var enemySpawner = $EnemySpawner
 var magicMissile = preload("res://scenes/spell.tscn")
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -17,14 +19,14 @@ func _ready():
 func _process(delta):
 	if Input.is_action_just_pressed("space"):
 		shoot_missile()
-		
+	enemySpawner.spawn_enemy()
+	
 func shoot_missile():
 	var newMissile = magicMissile.instantiate()
 	add_child(newMissile)
 	newMissile.global_position = player.global_position
 	newMissile.direction = player.facingDirection
 	
-
 
 func _on_enemy_died():
 	score += 100

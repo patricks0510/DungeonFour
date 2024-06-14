@@ -14,7 +14,7 @@ func _ready():
 func _process(delta):
 	if(direction == Vector2(0,0)):
 		direction = Vector2(1,0)
-	global_position += direction*speed
+	global_position += direction*speed*delta
 
 func _on_timer_timeout():
 	spell.emitting = false
