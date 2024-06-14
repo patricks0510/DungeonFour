@@ -17,3 +17,16 @@ func spawn_enemy():
 
 func _on_timer_timeout():
 	spawn_enemy()
+	
+#func _on_ghost_area_entered(area):
+	##bit mask value for collision laye
+	#match area.get_collision_layer():
+		#8:
+			#print("ghost is shot")
+			#emit_signal("died")
+			#queue_free()
+#
+#func _on_ghost_body_entered(body):
+	#match body.name:
+		#"Player":
+			#body.take_damage()

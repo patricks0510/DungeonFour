@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://scripts/spell.gd" id="1_myuq7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gebmo"]
+radius = 16.1286
 
 [sub_resource type="CurveXYZTexture" id="CurveXYZTexture_05ybm"]
 
@@ -46,4 +47,5 @@ process_material = SubResource("ParticleProcessMaterial_heqjq")
 [node name="Timer" type="Timer" parent="SpellParticle"]
 autostart = true
 
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="SpellParticle/Timer" to="." method="_on_timer_timeout"]

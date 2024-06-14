@@ -20,15 +20,15 @@ position = Vector2(378, 245)
 gizmo_extents = 56.5
 
 [node name="SpawnPoint4" type="Marker2D" parent="SpawnPoints"]
-position = Vector2(406, 382)
+position = Vector2(325, 296)
 gizmo_extents = 56.5
 
 [node name="SpawnPoint5" type="Marker2D" parent="SpawnPoints"]
-position = Vector2(281, 425)
+position = Vector2(264, 347)
 gizmo_extents = 56.5
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 5.0
 autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

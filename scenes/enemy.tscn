@@ -1,28 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://c4g6sbgk7ixro"]
+[gd_scene load_steps=3 format=3 uid="uid://c4g6sbgk7ixro"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_u1e45"]
-[ext_resource type="Texture2D" uid="uid://py4apacyy34w" path="res://assets/ghost.png" id="2_hjlck"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hhht7"]
-radius = 7.0
-height = 14.0
+[ext_resource type="PackedScene" uid="uid://dypmou7dj61mn" path="res://scenes/ghost.tscn" id="2_k5pl5"]
 
 [node name="Enemy" type="Node2D"]
 script = ExtResource("1_u1e45")
 
-[node name="Ghost" type="Area2D" parent="."]
-collision_layer = 4
-collision_mask = 11
+[node name="Ghost" parent="." instance=ExtResource("2_k5pl5")]
 
-[node name="GhostSprite" type="Sprite2D" parent="Ghost"]
-light_mask = 4
-visibility_layer = 4
-texture = ExtResource("2_hjlck")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ghost"]
-light_mask = 4
-visibility_layer = 4
-shape = SubResource("CapsuleShape2D_hhht7")
-
-[connection signal="area_entered" from="Ghost" to="." method="_on_ghost_area_entered"]
-[connection signal="body_entered" from="Ghost" to="." method="_on_ghost_body_entered"]
+[connection signal="died" from="Ghost" to="." method="_on_ghost_died"]

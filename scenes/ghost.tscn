@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dypmou7dj61mn"]
+
+[ext_resource type="Script" path="res://scripts/ghost.gd" id="1_u05fb"]
+[ext_resource type="Texture2D" uid="uid://py4apacyy34w" path="res://assets/ghost.png" id="1_u6wy2"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hhht7"]
+radius = 7.0
+height = 14.0
+
+[node name="Ghost" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 11
+script = ExtResource("1_u05fb")
+
+[node name="GhostSprite" type="Sprite2D" parent="."]
+light_mask = 4
+visibility_layer = 4
+texture = ExtResource("1_u6wy2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 4
+visibility_layer = 4
+shape = SubResource("CapsuleShape2D_hhht7")
