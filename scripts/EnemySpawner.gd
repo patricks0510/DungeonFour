@@ -12,7 +12,6 @@ func spawn_enemy():
 	
 	var enemy_instance = enemy.instantiate()
 	enemy_instance.global_position = random_spawn_pos.global_position
-	print(enemy_instance.global_position)
 	emit_signal("enemy_spawned", enemy_instance)
 
 
