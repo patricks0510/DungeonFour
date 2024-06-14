@@ -1,17 +1,20 @@
 extends Node2D
 
+signal enemy_spawned(enemy_instance)
+
 var enemy = preload("res://scenes/enemy.tscn")
-var seconds_lapsed
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+@onready var spawnPoints = $SpawnPoints
 
 func spawn_enemy():
-	var newEnemy = enemy.instantiate()
-	add_child(newEnemy)
+	var spawn_pos_arr = spawnPoints.get_children()
+	var random_spawn_pos = spawn_pos_arr.pick_random()
+	
+	var enemy_instance = enemy.instantiate()
+	enemy_instance.global_position = random_spawn_pos.global_position
+	print(enemy_instance.global_position)
+	emit_signal("enemy_spawned", enemy_instance)
+
+
+func _on_timer_timeout():
+	spawn_enemy()

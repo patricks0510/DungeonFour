@@ -25,3 +25,4 @@ visibility_layer = 4
 shape = SubResource("CapsuleShape2D_hhht7")
 
 [connection signal="area_entered" from="Ghost" to="." method="_on_ghost_area_entered"]
+[connection signal="body_entered" from="Ghost" to="." method="_on_ghost_body_entered"]

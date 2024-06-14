@@ -8,6 +8,7 @@ size = Vector2(16, 16)
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
+collision_mask = 5
 script = ExtResource("1_f8f4b")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -18,14 +19,6 @@ texture = ExtResource("2_gi1il")
 region_rect = Rect2(0, 112.727, 16.2957, 18.5415)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(8, -8)
-shape = SubResource("RectangleShape2D_tlh2j")
-
-[node name="Area2D" type="Area2D" parent="."]
-collision_layer = 2
-collision_mask = 5
-
-[node name="CheckOverlapShape" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(8, -8)
 shape = SubResource("RectangleShape2D_tlh2j")
 

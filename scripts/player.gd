@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal took_damage
+
 @export var speed = 128
 
 var direction2d = Vector2(0,0)
@@ -16,3 +18,6 @@ func _movement_loop(delta):
 		facingDirection = direction2d
 	velocity = direction2d*speed*delta
 	move_and_slide()
+
+func take_damage():
+	emit_signal("took_damage")
