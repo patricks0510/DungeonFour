@@ -4,11 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://b0qccj12bgx2b" path="res://assets/mage.png" id="2_gi1il"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tlh2j"]
-size = Vector2(16, 16)
+size = Vector2(12, 14)
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
-collision_mask = 5
 script = ExtResource("1_f8f4b")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -19,7 +18,17 @@ texture = ExtResource("2_gi1il")
 region_rect = Rect2(0, 112.727, 16.2957, 18.5415)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(8, -8)
+position = Vector2(8, -7)
 shape = SubResource("RectangleShape2D_tlh2j")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShapeSignals" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(8, -7)
+shape = SubResource("RectangleShape2D_tlh2j")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

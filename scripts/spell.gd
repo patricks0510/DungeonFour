@@ -31,6 +31,6 @@ func fade_spell():
 func _on_area_2d_body_entered(body):
 	match body.get_collision_layer():
 		4:
-			body.get_parent().emit_signal("died")
+			body.emit_signal("died")
 			fade_spell()
-			body.get_parent().queue_free()
+			body.queue_free()

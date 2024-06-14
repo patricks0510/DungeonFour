@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+class_name Player
 signal took_damage
 
 @export var speed = 128
@@ -21,3 +21,9 @@ func _movement_loop(delta):
 
 func take_damage():
 	emit_signal("took_damage")
+
+
+func _on_area_2d_body_entered(body):
+	take_damage()
+	body.queue_free()
+	pass # Replace with function body.
