@@ -15,11 +15,15 @@ var gameOverScreen = preload("res://scenes/game_over.tscn")
 func _ready():
 	hud.set_score_label(score)
 	hud.set_lives_label(lives)
+	
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_action_just_pressed("space") && player != null:
-		shoot_missile()
+	if player != null:
+		enemySpawner.get_agro_point(player.get_global_transform())
+		if Input.is_action_just_pressed("space"):
+			shoot_missile()
 
 func shoot_missile():
 	var newMissile = magicMissile.instantiate()
