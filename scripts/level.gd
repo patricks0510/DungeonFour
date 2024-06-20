@@ -1,12 +1,14 @@
 extends Node2D
 
 var score = 0
-var lives = 5
+@export var lives = 5
 
 @onready var player = $Player
+@onready var ui = $UI
 @onready var hud = $UI/HUD
 @onready var enemySpawner = $EnemySpawner
 var magicMissile = preload("res://scenes/spell.tscn")
+var gameOverScreen = preload("res://scenes/game_over.tscn")
 
 
 # Called when the node enters the scene tree for the first time.
@@ -16,7 +18,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_action_just_pressed("space"):
+	if Input.is_action_just_pressed("space") && player != null:
 		shoot_missile()
 
 func shoot_missile():
@@ -37,3 +39,11 @@ func _on_enemy_spawner_enemy_spawned(enemy_instance):
 func _on_player_took_damage():
 	lives -= 1
 	hud.set_lives_label(lives)
+	if lives <= 0:
+		player.die()
+		
+		await get_tree().create_timer(1.5).timeout
+		
+		var gos = gameOverScreen.instantiate()
+		gos.set_score(score)
+		ui.add_child(gos)

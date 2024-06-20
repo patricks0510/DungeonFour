@@ -1,0 +1,93 @@
+[gd_scene load_steps=6 format=3 uid="uid://cpggph0862bun"]
+
+[ext_resource type="Script" path="res://scripts/game_over.gd" id="1_6rl2s"]
+[ext_resource type="FontFile" uid="uid://qaib3n0a017f" path="res://assets/fonts/Coolville.otf" id="1_7prjs"]
+
+[sub_resource type="Theme" id="Theme_xlut0"]
+default_font = ExtResource("1_7prjs")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_krcrd"]
+bg_color = Color(1, 0, 0, 0.666667)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+shadow_color = Color(0, 0, 0, 0.913725)
+shadow_size = 3
+
+[sub_resource type="LabelSettings" id="LabelSettings_ej1dv"]
+font = ExtResource("1_7prjs")
+font_size = 24
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_xlut0")
+script = ExtResource("1_6rl2s")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -100.0
+offset_right = 150.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_krcrd")
+
+[node name="GameOverTextLabel" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -55.0
+offset_right = 55.0
+offset_bottom = 20.0
+grow_horizontal = 2
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_ej1dv")
+
+[node name="ScoreLabel" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -39.5
+offset_top = -10.0
+offset_right = 39.5
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "SCORE: "
+label_settings = SubResource("LabelSettings_ej1dv")
+
+[node name="RestartButton" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -44.0
+offset_top = -28.0
+offset_right = 44.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_7prjs")
+theme_override_font_sizes/font_size = 24
+text = "Restart"
+
+[connection signal="pressed" from="Panel/RestartButton" to="." method="_on_restart_button_pressed"]

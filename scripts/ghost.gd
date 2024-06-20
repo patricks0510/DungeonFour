@@ -12,7 +12,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	#global_position = global_position+Vector2(randi_range(-speed,speed),randi_range(-speed,speed))
-	velocity += Vector2(randi_range(-speed/3,speed/3)*delta,randi_range(-speed/3,speed/3)*delta)
+	velocity += Vector2(randi_range(-speed/3.0,speed/3.0)*delta,randi_range(-speed/3.0,speed/3.0)*delta)
 	move_and_slide()
 	#if collision:
 		#print(collision.get_collision_layer_value())

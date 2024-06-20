@@ -22,6 +22,8 @@ func _movement_loop(delta):
 func take_damage():
 	emit_signal("took_damage")
 
+func die():
+	queue_free()
 
 func _on_area_2d_body_entered(body):
 	take_damage()
