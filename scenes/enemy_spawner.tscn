@@ -8,27 +8,27 @@ script = ExtResource("1_rqx4q")
 [node name="SpawnPoints" type="Node2D" parent="."]
 
 [node name="SpawnPoint1" type="Marker2D" parent="SpawnPoints"]
-position = Vector2(260, 170)
+position = Vector2(346, 66)
 gizmo_extents = 56.5
 
 [node name="SpawnPoint2" type="Marker2D" parent="SpawnPoints"]
-position = Vector2(174, 272)
+position = Vector2(66, 298)
 gizmo_extents = 56.5
 
 [node name="SpawnPoint3" type="Marker2D" parent="SpawnPoints"]
-position = Vector2(378, 245)
+position = Vector2(617, 230)
 gizmo_extents = 56.5
 
 [node name="SpawnPoint4" type="Marker2D" parent="SpawnPoints"]
-position = Vector2(325, 296)
+position = Vector2(485, 511)
 gizmo_extents = 56.5
 
 [node name="SpawnPoint5" type="Marker2D" parent="SpawnPoints"]
-position = Vector2(264, 347)
+position = Vector2(194, 510)
 gizmo_extents = 56.5
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 0.25
 autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
