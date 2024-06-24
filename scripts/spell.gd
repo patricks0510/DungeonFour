@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var direction = Vector2(0,0)
+var direction = Vector2(0,0)
 @export var speed = 4
 
 @onready var spell = $SpellParticle

@@ -2,7 +2,7 @@ extends Node2D
 
 signal enemy_spawned(enemy_instance)
 
-var enemy = preload("res://scenes/ghost.tscn")
+@export var enemy = preload("res://scenes/ghost.tscn")
 
 @onready var spawnPoints = $SpawnPoints
 

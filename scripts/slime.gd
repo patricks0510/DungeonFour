@@ -1,5 +1,4 @@
 extends "res://scripts/enemy.gd"
-##signal died
 
 @export var speed = 15
 
@@ -14,7 +13,6 @@ func _physics_process(delta):
 	#velocity += Vector2(randi_range(-speed/3.0,speed/3.0)*delta,randi_range(-speed/3.0,speed/3.0)*delta)
 	velocity = velocity
 	move_and_slide()
-	#if collision:
 		#print(collision.get_collision_layer_value())
 		#match collision.get_collider():
 			#Player:

@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4yrklqge0x16"]
+
+[ext_resource type="Script" path="res://scripts/slime.gd" id="1_pj75s"]
+[ext_resource type="Texture2D" uid="uid://py4apacyy34w" path="res://assets/slime.png" id="2_1ttfv"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ggday"]
+radius = 6.0
+height = 14.0
+
+[node name="Slime" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 11
+script = ExtResource("1_pj75s")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_1ttfv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_ggday")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_ggday")
