@@ -1,19 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c4g6sbgk7ixro"]
 
-[sub_resource type="GDScript" id="GDScript_ryhk3"]
-script/source = "extends CharacterBody2D
-class_name Enemy
-
-signal died
-
-var ghost = preload(\"res://assets/ghost.png\")
-var slime = preload(\"res://assets/slime.png\")
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-	
-"
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_u1e45"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1wor4"]
 radius = 1.0
@@ -21,7 +8,7 @@ radius = 1.0
 [node name="Enemy" type="CharacterBody2D"]
 collision_layer = 4
 collision_mask = 10
-script = SubResource("GDScript_ryhk3")
+script = ExtResource("1_u1e45")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_1wor4")
