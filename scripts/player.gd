@@ -23,7 +23,10 @@ func take_damage():
 	emit_signal("took_damage")
 
 func die():
+	#current pos being experimented with to lock camera after freeing character
+	var currentPos = get_global_transform()
 	queue_free()
+	return currentPos
 
 func _on_area_2d_body_entered(body):
 	take_damage()

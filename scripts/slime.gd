@@ -1,10 +1,9 @@
 extends "res://scripts/enemy.gd"
 
-@export var speed = 15
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#velocity = Vector2(randi_range(-speed,speed),randi_range(-speed,speed))
+	health = 30
+	speed = 10
 	pass # Replace with function body.
 		##print(collision.get_collision_layer_value())
 		##match collision.get_collider():
@@ -19,8 +18,3 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
-
-
-func _on_area_2d_body_entered(body):
-	emit_signal("died")
-	pass # Replace with function body.

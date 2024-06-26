@@ -6,7 +6,7 @@ var score = 0
 @onready var player = $Player
 @onready var ui = $UI
 @onready var hud = $UI/HUD
-@onready var enemySpawner = $GhostSpawner
+@onready var ghostSpawner = $GhostSpawner
 @onready var slimeSpawnwer = $SlimeSpawner
 var magicMissile = preload("res://scenes/spell.tscn")
 var gameOverScreen = preload("res://scenes/game_over.tscn")
@@ -20,7 +20,8 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if player != null:
-		enemySpawner.get_agro_point(player.get_global_transform())
+		#run get direction on each 
+		ghostSpawner.get_agro_point(player.get_global_transform())
 		slimeSpawnwer.get_agro_point(player.get_global_transform())
 		if Input.is_action_just_pressed("space"):
 			shoot_missile()
@@ -37,7 +38,7 @@ func _on_enemy_died():
 
 func _on_enemy_spawner_enemy_spawned(enemy_instance):
 	enemy_instance.connect("died", _on_enemy_died)
-	enemySpawner.add_child(enemy_instance)
+	ghostSpawner.add_child(enemy_instance)
 	
 func _on_slime_spawner_enemy_spawned(enemy_instance):
 	enemy_instance.connect("died", _on_enemy_died)
@@ -47,8 +48,7 @@ func _on_player_took_damage():
 	lives -= 1
 	hud.set_lives_label(lives)
 	if lives <= 0:
-		player.die()
-		
+		var deathPos = player.die()
 		await get_tree().create_timer(1.5).timeout
 		
 		var gos = gameOverScreen.instantiate()

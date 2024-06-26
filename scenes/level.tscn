@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://okdgr8vkn1pb"]
+[gd_scene load_steps=8 format=3 uid="uid://okdgr8vkn1pb"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_xveov"]
 [ext_resource type="PackedScene" uid="uid://dwh4xn43e5kbu" path="res://scenes/hud.tscn" id="2_68qjm"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://b1bf17wawlt4w" path="res://scenes/bg.tscn" id="3_v7wau"]
 [ext_resource type="PackedScene" uid="uid://cp6fry5x846ou" path="res://scenes/tile_map.tscn" id="4_t52bh"]
 [ext_resource type="PackedScene" uid="uid://by2bmwonvrgid" path="res://scenes/enemy_spawner.tscn" id="6_41pr2"]
-[ext_resource type="PackedScene" uid="uid://dypmou7dj61mn" path="res://scenes/ghost.tscn" id="7_2l45e"]
 [ext_resource type="PackedScene" uid="uid://c4yrklqge0x16" path="res://scenes/slime.tscn" id="8_wldmd"]
 
 [node name="Level" type="Node2D"]
@@ -32,7 +31,6 @@ position = Vector2(619, 255)
 
 [node name="GhostSpawner" parent="." instance=ExtResource("6_41pr2")]
 position = Vector2(541, 248)
-enemy = ExtResource("7_2l45e")
 
 [node name="SlimeSpawner" parent="." instance=ExtResource("6_41pr2")]
 position = Vector2(714, 246)

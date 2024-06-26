@@ -15,14 +15,15 @@ func spawn_enemy():
 	emit_signal("enemy_spawned", enemy_instance)
 
 func get_agro_point(player_coords):
-	var player_pos = player_coords[2]
+	var playerPos = player_coords[2]
 	var enemy_list = get_children()
-	for ghostNum in range(2,enemy_list.size()):
-		var agro_dir = player_pos - enemy_list[ghostNum].global_position
-		agro_dir = agro_dir.normalized()
-		agro_dir *= enemy_list[ghostNum].speed
-		enemy_list[ghostNum].velocity = agro_dir
-	pass
+	#remove at called twice to ignore spawnPoints and Timer nodes
+	enemy_list.remove_at(0)
+	enemy_list.remove_at(0)
+	
+	for baddie in enemy_list:
+		baddie.find_player(playerPos)
+		
 
 func _on_timer_timeout():
 	spawn_enemy()
