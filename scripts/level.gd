@@ -18,7 +18,7 @@ func _ready():
 	hud.set_lives_label(lives)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if player != null:
 		#run get direction on each 
 		ghostSpawner.get_agro_point(player.get_global_transform())

@@ -1,21 +1,15 @@
-extends "res://scripts/enemy.gd"
+extends Enemy
 
+@onready var healthBar = $HealthBar
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	health = 50
+	maxHealth = 50
 	speed = 15
-	#velocity = Vector2(randi_range(-speed,speed),randi_range(-speed,speed))
-	pass # Replace with function body.
-		##print(collision.get_collision_layer_value())
-		##match collision.get_collider():
-			##Player:
-				##print(collision.get_collider_shape())
-				##velocity = Vector2(0,0)
-				##collision.get_collider().take_damage()
-				##print("player collides with ghost")
-			##TileMap:
-				##print("hit wall")
+	currentHealth = maxHealth
+	healthBar.max_value = maxHealth
+	healthBar.value = currentHealth
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
+	healthBar.value = currentHealth
 	pass

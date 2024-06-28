@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dypmou7dj61mn"]
+[gd_scene load_steps=5 format=3 uid="uid://dypmou7dj61mn"]
 
 [ext_resource type="Script" path="res://scripts/ghost.gd" id="1_u05fb"]
 [ext_resource type="Texture2D" uid="uid://dfs4unwiad4qt" path="res://assets/ghost.png" id="1_u6wy2"]
+[ext_resource type="Texture2D" uid="uid://c13uya3omcgic" path="res://assets/UIElems/barRed_horizontalMid.png" id="3_3lwd2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hhht7"]
 radius = 9.0
@@ -11,7 +12,6 @@ height = 18.0
 collision_layer = 4
 collision_mask = 10
 script = ExtResource("1_u05fb")
-speed = null
 
 [node name="GhostSprite" type="Sprite2D" parent="."]
 light_mask = 4
@@ -22,3 +22,15 @@ texture = ExtResource("1_u6wy2")
 light_mask = 4
 visibility_layer = 4
 shape = SubResource("CapsuleShape2D_hhht7")
+
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+light_mask = 4
+visibility_layer = 10
+offset_left = -4.0
+offset_top = -11.0
+offset_right = 5.0
+offset_bottom = -10.0
+fill_mode = 6
+nine_patch_stretch = true
+texture_progress = ExtResource("3_3lwd2")
+metadata/_edit_use_anchors_ = true

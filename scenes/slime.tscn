@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://c4yrklqge0x16"]
+[gd_scene load_steps=5 format=3 uid="uid://c4yrklqge0x16"]
 
 [ext_resource type="Script" path="res://scripts/slime.gd" id="1_pj75s"]
 [ext_resource type="Texture2D" uid="uid://py4apacyy34w" path="res://assets/slime.png" id="2_1ttfv"]
+[ext_resource type="Texture2D" uid="uid://c13uya3omcgic" path="res://assets/UIElems/barRed_horizontalMid.png" id="3_o7no5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ggday"]
 radius = 6.0
@@ -17,3 +18,15 @@ texture = ExtResource("2_1ttfv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_ggday")
+
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+light_mask = 4
+visibility_layer = 10
+offset_left = -4.0
+offset_top = -11.0
+offset_right = 5.0
+offset_bottom = -10.0
+fill_mode = 6
+nine_patch_stretch = true
+texture_progress = ExtResource("3_o7no5")
+metadata/_edit_use_anchors_ = true
