@@ -11,7 +11,7 @@ func spawn_enemy():
 	var random_spawn_pos = spawn_pos_arr.pick_random()
 	
 	var enemy_instance = enemy.instantiate()
-	enemy_instance.global_transform = random_spawn_pos.global_transform
+	enemy_instance.transform = random_spawn_pos.transform
 	emit_signal("enemy_spawned", enemy_instance)
 
 func get_agro_point(player_coords):

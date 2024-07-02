@@ -45,12 +45,12 @@ position = Vector2(621, 257)
 [node name="GhostSpawner" parent="." instance=ExtResource("6_41pr2")]
 light_mask = 4
 visibility_layer = 4
-position = Vector2(260, 121)
+position = Vector2(516, 250)
 
 [node name="SlimeSpawner" parent="." instance=ExtResource("6_41pr2")]
 light_mask = 4
 visibility_layer = 4
-position = Vector2(354, 121)
+position = Vector2(725, 254)
 enemy = ExtResource("8_wldmd")
 
 [connection signal="took_damage" from="Player" to="." method="_on_player_took_damage"]
