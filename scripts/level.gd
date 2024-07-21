@@ -8,6 +8,7 @@ var score = 0
 @onready var hud = $UI/HUD
 @onready var ghostSpawner = $GhostSpawner
 @onready var slimeSpawnwer = $SlimeSpawner
+@onready var spiderSpawner = $SpiderSpawner
 var magicMissile = preload("res://scenes/spell.tscn")
 var gameOverScreen = preload("res://scenes/game_over.tscn")
 
@@ -23,6 +24,7 @@ func _process(_delta):
 		#run get direction on each 
 		ghostSpawner.get_agro_point(player.get_global_transform())
 		slimeSpawnwer.get_agro_point(player.get_global_transform())
+		spiderSpawner.get_agro_point(player.get_global_transform())
 		if Input.is_action_just_pressed("space"):
 			shoot_missile()
 
@@ -43,6 +45,10 @@ func _on_enemy_spawner_enemy_spawned(enemy_instance):
 func _on_slime_spawner_enemy_spawned(enemy_instance):
 	enemy_instance.connect("died", _on_enemy_died)
 	slimeSpawnwer.add_child(enemy_instance)
+	
+func _on_spider_spawner_enemy_spawned(enemy_instance):
+	enemy_instance.connect("died", _on_enemy_died)
+	spiderSpawner.add_child(enemy_instance)
 
 func _on_player_took_damage():
 	lives -= 1
